@@ -1,0 +1,45 @@
+format_version: 2
+
+common:
+
+environments:
+
+pipelines:
+  Performance-Reports:
+    group: refine-and-choose
+    materials:
+      search-performance-reports:
+        auto-update: true
+        destination: search-performance-reports
+        git: "git@github.com:jamiebdavis/search-performance-reports.git"
+        branch: "main"
+        blacklist:
+          - /**/*
+      web-cd-tools:
+        auto_update: true
+        destination: web-cd-tools
+        git: "git@scm.server.traveljigsaw.com:re-platforming/web-cd-tools.git"
+        branch: "master"
+        blacklist:
+          - /**/* # Don't run on changes to this repo.
+
+    stages:
+      - build-and-run-report:
+          clean_workspace: true
+          jobs:
+            build:
+              elastic_profile_id: "node14-chrome-large"
+              tasks:
+                - exec:
+                - exec:
+                    command: "/bin/bash"
+                    arguments:
+                      - "-c"
+                      - "npm ci"
+                    working_directory: "search-performance-reports"
+                - exec:
+                    command: "/bin/bash"
+                    arguments:
+                      - "-c"
+                      - "node index.js"
+                    working_directory: "search-performance-reports"

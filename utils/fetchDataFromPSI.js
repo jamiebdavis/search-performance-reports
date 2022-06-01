@@ -5,7 +5,21 @@ const { pageSpeedApiEndpointUrl } = require("./pageSpeedApiEndpointUrl");
 async function fetchDataFromPSI(strategy) {
 
   const pageSpeedEndpointUrl = pageSpeedApiEndpointUrl(strategy);
-  const response = await axios.get(pageSpeedEndpointUrl);
+  const response = await axios.get(pageSpeedEndpointUrl).catch(function(error) {
+    if (error.response) {
+      // Request made and server responded
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log("Error", error.message);
+    }
+
+  });
 
   const lighthouse = response.data.lighthouseResult;
   const originLoadingExperience = response.data.originLoadingExperience;

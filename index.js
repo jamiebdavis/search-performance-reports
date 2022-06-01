@@ -7,7 +7,7 @@ async function run () {
     try {
       await generateReport(screen);
     } catch (err) {
-      console.log("generateReport Failed to run");
+      console.error("generateReport: Failed to run");
       console.log(err);
     }
   }

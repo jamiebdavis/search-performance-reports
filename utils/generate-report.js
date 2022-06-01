@@ -16,11 +16,9 @@ async function generateReport(screenType) {
   const spreadsheetId = "1D8LfZiz3t4meTVB3pP002uwYGFGBoeixnYVhNoOfhsA";
 
   console.log(`Generating report for ${screenType}.`);
-  try {
-    let data = await fetchDataFromPSI(screenType);
-  } catch (e) {
-    console.error("Unable to fetch data from page speed insights")
-  }
+
+  let data = await fetchDataFromPSI(screenType);
+  console.log(data)
 
   const {
     overall_performance,

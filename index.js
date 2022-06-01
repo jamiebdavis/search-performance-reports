@@ -11,7 +11,7 @@ async function run () {
       console.log(err);
     }
   }
-  console.log("Reports complete");
+  console.log("Report attemped finished");
 };
 
 run();

@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-report": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "axios": "^0.26.1",
-    "eslint": "^8.14.0",
-    "nodemon": "^2.0.15"
+    "eslint": "^8.14.0"
   },
   "dependencies": {
     "date-and-time": "^2.3.1",
@@ -20,7 +20,6 @@
     "ejs": "^3.1.7",
     "googleapis": "^100.0.0",
     "node-cron": "^3.0.0",
-    "prettier": "^2.6.2",
-    "shelljs": "^0.8.5"
+    "prettier": "^2.6.2"
   }
 }

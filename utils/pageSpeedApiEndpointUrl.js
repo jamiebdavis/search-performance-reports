@@ -8,7 +8,7 @@ function pageSpeedApiEndpointUrl(strategy) {
   return (
     apiBaseUrl +
     "?url=" +
-    rentalCarsWebsite +
+    "http://www.google.com" +
     "&key=" +
     process.env.PSI_APIKEY +
     "&strategy=" +
